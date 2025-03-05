@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+React Movie App 🎬
+This is a React project that uses Firebase for data handling and authentication and Tailwind CSS for the UI and Axios for data fetching. This app is mobile responsive too.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 How to Run the Application
+1️⃣ Clone and Install Dependencies
+After cloning the project, install the required dependencies:
+npm i
 
-## Available Scripts
+2️⃣ Run and Build the Project
+To run the project:
+npm start
 
-In the project directory, you can run:
+To build the project:
+npm run build
 
-### `yarn start`
+3️⃣ Firebase Setup
+Create an account on Firebase and add your credentials in the .env file:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Firebase Configuration  
+REACT_APP_FIREBASE_API_KEY=YOUR_API_KEY  
+REACT_APP_FIREBASE_AUTH_DOMAIN=YOUR_AUTH_DOMAIN  
+REACT_APP_FIREBASE_PROJECT_ID=YOUR_PROJECT_ID  
+REACT_APP_FIREBASE_STORAGE_BUCKET=YOUR_STORAGE_BUCKET  
+REACT_APP_MESSAGING_SENDER=YOUR_MESSAGING_SENDER  
+REACT_APP_APP_ID=YOUR_APP_ID  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4️⃣ TMDB API Setup
+Create an account on TMDB (The Movie Database) and get an API key.
+Replace 'YOUR_KEY' in Request.js file:
 
-### `yarn test`
+const key = 'YOUR_KEY';  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const requests = {  
+  requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`,  
+  requestTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${key}&language=en-US&page=1`,  
+  requestTrending: `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=2`,  
+  requestHorror: `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&query=horror&page=2&include_adult=false`,  
+  requestUpcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&language=en-US&page=1`,  
+  requestPopularTV: `https://api.themoviedb.org/3/tv/popular?api_key=${key}&language=en-US&page=1`,  
+  requestKidsMovies: `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=en-US&with_genres=10751&page=1`,  
+};  
 
-### `yarn build`
+export default requests;
+   Features
+🔹 Authentication
+Users must Sign Up before accessing the app fully.
+Firebase authentication is used to validate login credentials.
+Sign-in and sign-up functionalities are handled in Firebase.js and AuthContext.js.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+SignUp image
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/SignUp.PNG" width="200px">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+SignIn image
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/SignIn.PNG" width="200px">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔹 Home Page
+When you run the project, the Home Page appears.
+If you don't have an account, click Sign Up to create one.
+After signing in, you will be redirected to Home.jsx.
+Movies are displayed in different categories.
 
-### `yarn eject`
+🔹 Movie Banners and Details
+A banner image is displayed on every page.
+Clicking the Play button plays the corresponding movie trailer.
+Clicking More Info expands the movie details.
+The banner image changes randomly on page refresh using:
+Math.floor(Math.random() * someValue);
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Home Page with movie banner
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/Home.PNG" width="200px">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+🔹 Movie Categories
+Below the banner, movies are displayed in rows using Flexbox.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Clicking a Navbar item filters movies by category:
+Navbar Image
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/NavBar.PNG" width="200px">
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Home → Home.jsx
+TV Shows → TVShow.jsx
+Kids → Kid.jsx
+Movies → Movies.jsx
+Popular → Popular.jsx
+Example API calls for fetching movies:
 
-## Learn More
+const response = await axios.get(requests.requestPopularTV);
+const response = await axios.get(requests.requestKidsMovies);
+const responses = await Promise.all([
+  axios.get(requests.requestUpcoming),
+  axios.get(requests.requestPopular),
+  axios.get(requests.requestTrending),
+  axios.get(requests.requestTopRated),
+  axios.get(requests.requestHorror),
+]);
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+🔹Search Bar feature
+The search bar in Navbar will help you to filter the movies that you need that is applicable in all above pages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🔹 "My List" Feature 
+Hover over a movie to see a heart (❤️) icon.
+Clicking the heart saves the movie to "My List".
+Saved movies are stored in Firebase Firestore under the logged-in user’s account.
+Users can access "My List" only when logged in.
 
-### Code Splitting
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/MyShow.PNG" width="200px">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🔹 User Account
+Clicking on blueSmile.jpg shows an option to Log Out.
 
-### Analyzing the Bundle Size
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/Logout.PNG" width="200px">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🔥 Technologies Used
+React (Frontend Framework)
+Firebase (Authentication & Firestore)
+TMDB API (Movie Data)
+Axios (API Requests)
+Tailwind CSS (Styling)
