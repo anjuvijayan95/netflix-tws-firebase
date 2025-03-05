@@ -1,4 +1,3 @@
-// const key = 'f641536f70f5b1c2443cc1d2e54245e6'
   const key = 'YOUR_KEY'
 const requests = {
     requestPopular: `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`,
