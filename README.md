@@ -47,11 +47,11 @@ Users must Sign Up before accessing the app fully.
 Firebase authentication is used to validate login credentials.
 Sign-in and sign-up functionalities are handled in Firebase.js and AuthContext.js.
 
-SignUp image
-<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/SignUp.PNG" width="200px">
+SignUp image<br>
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/SignUp.PNG" width="300px">
 
-SignIn image
-<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/SignIn.PNG" width="200px">
+SignIn image<br>
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/SignIn.PNG" width="300px">
 
 🔹 Home Page
 When you run the project, the Home Page appears.
@@ -66,15 +66,18 @@ Clicking More Info expands the movie details.
 The banner image changes randomly on page refresh using:
 Math.floor(Math.random() * someValue);
 
-Home Page with movie banner
-<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/Home.PNG" width="200px">
+Home Page with movie banner<br>
+In Web<br>
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/Home.PNG" width="300px">
+In Mobile Browsers<br>
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/MobileHome.PNG" width="300px">
 
 🔹 Movie Categories
 Below the banner, movies are displayed in rows using Flexbox.
 
 Clicking a Navbar item filters movies by category:
-Navbar Image
-<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/NavBar.PNG" width="200px">
+Navbar Image<br>
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/NavBar.PNG" width="300px">
 
 Home → Home.jsx
 TV Shows → TVShow.jsx
@@ -102,12 +105,12 @@ Clicking the heart saves the movie to "My List".
 Saved movies are stored in Firebase Firestore under the logged-in user’s account.
 Users can access "My List" only when logged in.
 
-<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/MyShow.PNG" width="200px">
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/MyShow.PNG" width="300px">
 
 🔹 User Account
 Clicking on blueSmile.jpg shows an option to Log Out.
 
-<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/Logout.PNG" width="200px">
+<img src="https://github.com/anjuvijayan95/netflix-tws-firebase/blob/main/src/assets/img/Logout.PNG" width="300px">
 
 🔥 Technologies Used
 React (Frontend Framework)
