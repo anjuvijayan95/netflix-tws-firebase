@@ -1,7 +1,7 @@
-React Movie App 🎬
+React Movie App <br>
 This is a React project that uses Firebase for data handling and authentication and Tailwind CSS for the UI and Axios for data fetching. This app is mobile responsive too.
 
-🚀 How to Run the Application
+How to Run the Application
 1️⃣ Clone and Install Dependencies
 After cloning the project, install the required dependencies:
 npm i
